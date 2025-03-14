@@ -8,3 +8,4 @@ conn = sqlite3.connect(dbname)
 # データベースへのコネクションを閉じる。(必須)
 conn.close()
 #参考 https://proengineer.internous.co.jp/content/columnfeature/20735
+

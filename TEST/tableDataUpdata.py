@@ -27,3 +27,4 @@ conn.commit()
 # 5.データベースの接続を切断
 cur.close()
 conn.close()
+

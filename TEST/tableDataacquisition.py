@@ -19,3 +19,4 @@ for row in cur:
 # 4.データベースの接続を切断
 cur.close()
 conn.close()
+
