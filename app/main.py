@@ -1,10 +1,9 @@
-from fastapi import FastAPI, HTTPException
-from app import models
+from fastapi import FastAPI, HTTPException, APIRouter
+from app import models, users
 from app.schemas import User, UserCreate
 
 app = FastAPI()
-
-
+user = APIRouter(prefix='/user', tags=['user'])
 # ユーザー登録（create）
 @app.post("/users", response_model=User)
 def create_user(request: UserCreate):
@@ -34,7 +33,10 @@ def read_user():
 def update_user():
     session = models.SessionLocal()
     db_user = session.User()
-    
+    session.user(users.update().values(
+        name = user.name,
+        mail = user.mail
+    ).where(users.c.id == id))
     
     session.commit()
     session.refresh(db_user)
