@@ -46,7 +46,6 @@ def update_user():
 def delete_user():
     session = models.SessionLocal()
     db_user = session.User()
-    
     session.delete(db_user)
     session.commit()
     return db_user
